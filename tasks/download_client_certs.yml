@@ -1,0 +1,10 @@
+- name: Specifying a destination path
+  fetch:
+    src: "{{ item }}"
+    dest: "{{ fetch_client_cert_path }}"
+    flat: yes
+  with_items:
+    - "{{ dds_env_shell_path }}/docker_env.sh"
+    - "{{ dds_client_cert_path }}/ca.pem"
+    - "{{ dds_client_cert_path }}/cert.pem"
+    - "{{ dds_client_cert_path }}/key.pem"

@@ -76,6 +76,15 @@ dds_install_shell
 dds_restart_docker
 > Set to true, if the docker daemon should be restarted after create the certificates. Defaults to false.
 
+dds_force_cert_renew
+> Set to true to force certificate generation. If false, certificates are generated only if they are not found in the destination path
+
+dds_fetch_client_certs
+> Enables client certs fetching from remote node
+
+fetch_client_cert_path
+> Local Dest directory where remote client certs are copied
+
 Example Playbook
 ----------------
 
@@ -91,6 +100,8 @@ Here's an example playbook that executes our role:
           dds_host: 10.0.2.15
           dds_server_cert_path: /etc/default/docker
           dds_restart_docker: no
+          dds_fetch_client_certs: yes
+          fetch_client_cert_path: "~/.docker/{{ inventory_hostname  }}"
 
 License
 -------
